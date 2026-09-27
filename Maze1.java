@@ -20,6 +20,8 @@ public class Maze1 {
         allPath("", board, 0, 0);
     }
 
+    
+
     static void allPath(String p, boolean maze[][], int r, int c) {
         if (r == maze.length - 1 && c == maze[0].length - 1) {
             System.out.println(p);
