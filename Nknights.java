@@ -27,6 +27,12 @@ public class Nknights {
         return true;
     }
 
+    static boolean isValid(boolean[][]board,int r , int c ){
+        if (r>=0&&r<board.length && c>=0&&c<board.length){
+            return true;
+        }return false;
+    }
+
     static void display(boolean[][]board){
         for (boolean[]row:board){
             for (boolean element:row){
