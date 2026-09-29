@@ -2,7 +2,7 @@ package pkg;
 
 public class Nknights {
     public static void main(String[] args) {
-        boolean[][]board=new int[4][4];
+        boolean[][]board=new boolean[4][4];
         knight(board, 0, 0, 4);
     }
     static void knight(boolean[][]board , int r , int c , int k){
