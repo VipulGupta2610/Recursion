@@ -9,7 +9,24 @@ public class Nknights {
             display(board);
             return ;
         }
+        if (r==board.length-1 && c==board.length){
+            return ;
+        }
+        if (c==board.length){
+            knight(board, r+1, 0, k);
+        }
+        if (isSafe(board,r,c)){
+            board[r][c]=true;
+            knight(board, r, c+1, k-1);
+            board[r][c]=false;
+        }
+        knight(board, r, c+1, k);
     }
+
+    static boolean isSafe(boolean[][]board,int r , int c ){
+        return true;
+    }
+
     static void display(boolean[][]board){
         for (boolean[]row:board){
             for (boolean element:row){
