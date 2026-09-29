@@ -2,7 +2,8 @@ package pkg;
 
 public class Nknights {
     public static void main(String[] args) {
-        
+        boolean[][]board=new int[4][4];
+        knight(board, 0, 0, 4);
     }
     static void knight(boolean[][]board , int r , int c , int k){
         if (k==0){
@@ -24,6 +25,36 @@ public class Nknights {
     }
 
     static boolean isSafe(boolean[][]board,int r , int c ){
+        if (isValid(board, r-2, c-1)){
+            if (board[r-2][c-1]){
+                return false;
+            }
+        }
+        if (isValid(board, r-2, c+1)){
+            if (board[r-2][c+1]){
+                return false;
+            }
+        }
+        if (isValid(board, r-1, c-2)){
+            if (board[r-1][c-2]){
+                return false;
+            }
+        }
+        if (isValid(board, r+1, c+2)){
+            if (board[r+1][c-2]){
+                return false;
+            }
+        }
+        if (isValid(board, r-1, c+2)){
+            if (board[r-1][c+2]){
+                return false;
+            }
+        }
+        if (isValid(board, r+1, c+2)){
+            if (board[r+1][c+2]){
+                return false;
+            }
+        }
         return true;
     }
 
