@@ -31,6 +31,7 @@ public class SudokuSolver {
             if (isSafe(board, row, col, number)) {
                 board[row][col] = number;
                 if (solveSudoku(board)) {
+                    display(board);
                     return true;
                 } else {
                     board[row][col] = 0;
@@ -38,6 +39,15 @@ public class SudokuSolver {
             }
         }
         return false;
+    }
+
+    static void display(int[][] board) {
+        for (int []row:board){
+            for (int num:row){
+                System.out.print(num+" ");
+            }
+            System.out.println();
+        }
     }
 
     static boolean isSafe(int[][] board, int r, int c, int num) {
