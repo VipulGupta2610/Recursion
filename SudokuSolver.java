@@ -5,8 +5,39 @@ public class SudokuSolver {
 
     }
 
-    static void solveSudoku(int[][] board) {
+    static boolean solveSudoku(int[][] board) {
+        int n = board.length;
+        int row = -1;
+        int col = -1;
+        boolean emptyLeft = true;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (board[i][j] == 0) {
+                    row = i;
+                    col = j;
+                    emptyLeft = false;
+                    break;
+                }
+            }
+            if (emptyLeft == false) {
+                break;
+            }
+        }
+        if (emptyLeft) {
+            return true;
+        }
 
+        for (int number = 1; number <= 9; number++) {
+            if (isSafe(board, row, col, number)) {
+                board[row][col] = number;
+                if (solveSudoku(board)) {
+                    return true;
+                } else {
+                    board[row][col] = 0;
+                }
+            }
+        }
+        return false;
     }
 
     static boolean isSafe(int[][] board, int r, int c, int num) {
